@@ -5,7 +5,7 @@ import {Home, Profile, CreateCampaign,CampaignDetails} from './pages';
 import { NavBar,SideBar } from './component';
 const App = () => {
   return (
-    <div className='relative sm:p-8 p-4 bg-blackbg min-h-screen flex flex-row'>
+    <div className='overflow-x-hidden relative sm:p-8 p-4 bg-blackbg min-h-screen flex flex-row'>
         <div className='sm:flex hidden mr-10'>
           < SideBar />
         </div>

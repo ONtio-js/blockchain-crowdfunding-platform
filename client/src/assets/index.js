@@ -12,6 +12,8 @@ import menu from './menu.svg';
 import money from './money.svg';
 import loader from './loader.svg';
 import thirdweb from './thirdweb.png';
+import metamask from './metamask-logo.png';
+import walletConnect from './wallet-connect-logo.png';
 
 export {
   tagType,
@@ -22,6 +24,8 @@ export {
   payment,
   profile,
   sun,
+  metamask,
+  walletConnect,
   withdraw,
   search,
   menu,

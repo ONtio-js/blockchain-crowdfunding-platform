@@ -71,10 +71,10 @@ useEffect(() =>{
           </div>
           <div>
             <h4 className='font-epilogue font-semibold text-white text-[18px]  text-left uppercase'>donators</h4>
-            <div className='mt-2 flex flex-col gap-4'>
+            <div className='mt-2 flex flex-col gap-4 '>
 
               {donators.length > 0 ? donators.map((donator,index) => (
-                <div key={`${donator.donator}-${index}`} className="flex justify-between items-center gap-4">
+                <div key={`${donator.donator}-${index}`} className="flex justify-between  items-center gap-4 ">
                 <p className="font-epilogue font-normal text-[16px] text-[#b2b3bd] leading-[26px] break-ll">{index + 1}. {donator.donator}</p>
                 <p className="font-epilogue font-semibold text-[16px] text-green-400 leading-[26px] break-ll">{donator.donation}</p>
               </div>

@@ -3,12 +3,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { logo, thirdweb, menu, search } from '../assets';
 import { navLinks } from '../constants';
 import CustomButton from './CustomButton';
+import ConnectBox from './ConnectBox'
 import { useStateContext } from '../context';
 const NavBar = () => {
   const navigate = useNavigate();
   const [isActive, setisActive] = useState('dashboard');
   const [toggleDrawer, setToggleDrawer] = useState(false)
-  const {connect,address} = useStateContext();
+  const [toggleConnectBox, setConnectBox] = useState(false);
+  const {connect,address,multiWalletConnect} = useStateContext();
   return (
     <div className='flex md:flex-row flex-col-reverse justify-between mb-[35px] gap-6'>
       <div className='lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] bg-[#1c1c24] rounded-[100px]'>
@@ -25,13 +27,7 @@ const NavBar = () => {
           btnType={'button'}
           title={address ? 'create a campaign' : 'connect'}
           style={address ? 'bg-[#1dc071]' : 'bg-[#8c6dfd]'}
-          handleClick={() => {
-            if (address) {
-              navigate('create-campaign');
-            } else {
-              connect();
-            }
-          }}
+          handleClick={() => {setConnectBox(true)}}
         />
 
         <Link to={'/profile'}>
@@ -40,7 +36,7 @@ const NavBar = () => {
           </div>
         </Link>
       </div>
-
+<ConnectBox open={toggleConnectBox} onClose = {() => setConnectBox(false)}/>
       {/* ssmall screen navbar */}
       <div className='sm:hidden flex justify-between items-center relative'>
 
