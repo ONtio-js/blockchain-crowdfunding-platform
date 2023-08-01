@@ -1,4 +1,4 @@
-import React, { useContext, createContext } from 'react';
+import React, { useState, useContext, createContext } from 'react';
 
 import { useAddress, useContract,useDisconnect, useWalletConnect, useMetamask, useContractWrite } from '@thirdweb-dev/react';
 import { ethers } from 'ethers';
@@ -13,6 +13,8 @@ export const StateContextProvider = ({ children }) => {
     const connect = useMetamask();
     const multiWalletConnect = useWalletConnect();
     const disconnect = useDisconnect();
+
+    const [theme, setTheme] = useState(false);
     const publishCampaign = async (form) => {
         try {
             const data = await createCampaign({args:[
@@ -74,6 +76,8 @@ export const StateContextProvider = ({ children }) => {
                 {
                     address,
                     contract,
+                    theme,
+                    setTheme,
                     connect,
                     multiWalletConnect,
                     disconnect,

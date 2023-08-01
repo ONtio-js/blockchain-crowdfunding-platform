@@ -13,10 +13,17 @@ module.exports = {
         secondary: '10px 10px 20px rgba(2,2,2,0.25)'
       },
       backgroundColor:{
-        dirtyWhite:'#EDE9E8',
+        dirtyWhite:'#C1BFBE',
         pureWhite: '#FFFFFF',
         blackbg: '#13131a',
-        richBlack: "#1c1c24"
+        richBlack: "#1c1c24",
+        richGreen: '#2c2f32',
+        lightBlack: '#3a3a43',
+        bgGreen:"#1dc071"
+      },
+      textColor:{
+        white:'#FFFFFF',
+        grayText: '#818183',
       }
     },
   },

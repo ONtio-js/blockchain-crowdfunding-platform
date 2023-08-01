@@ -10,7 +10,7 @@ import FormField from '../component/FormField';
 const CreateCampaign = () => {
   const navigate = useNavigate();
   const [isloading, setisloading] = useState(false);
-  const {createCampaign} = useStateContext();
+  const {createCampaign,theme} = useStateContext();
   const [form, setform] = useState({
     name: '',
     title: '',
@@ -40,9 +40,9 @@ const CreateCampaign = () => {
     
   }
   return (
-    <div className='bg-[#1c1c24] flex justify-center items-center flex-col rounded[10px] sm:p-10 p-4 rounded-[15px]' >{isloading && <Loader />}
-    <div className='flex justify-center items-center p-[16px] sm:min-w-[380px] bg-[#3a3a43] rounded-[10px]'>
-      <h1 className='font-epilogue sm:text-[25px]  text-[18px] leading-[38px] text-white'>start a campaign</h1>
+    <div className={`${theme? 'bg-dirtyWhite border-2':'bg-richBlack'}  flex justify-center items-center flex-col rounded[10px] transition-colors duration-700 sm:p-10 p-4 rounded-[15px]`} >{isloading && <Loader />}
+    <div className={`flex justify-center items-center p-[16px] sm:min-w-[380px] ${theme?'bg-white/80':'bg-lightBlack'} transition-all duration-700  rounded-[10px]`}>
+      <h1 className={`${theme? 'text-grayText':'text-white'} font-epilogue sm:text-[25px]  text-[18px] leading-[38px] `}>start a campaign</h1>
     </div>
     <form onSubmit={handleSubmit} 
           className='w-full mt-[65px] flex flex-col gap-[30px]'
@@ -52,6 +52,7 @@ const CreateCampaign = () => {
      labelName = 'your name'
      placeHolder = 'John Doe'
      inputType = 'text'
+     theme={theme}
      value = {form.name}
      handleChange = {(e) => handleFormFieldChange('name',e)}
     />
@@ -59,6 +60,7 @@ const CreateCampaign = () => {
      labelName = 'campaign Title'
      placeHolder = 'Campaign Title'
      inputType = 'text'
+     theme={theme}
      value = {form.title}
      handleChange = {(e) => handleFormFieldChange('title',e)}
     />
@@ -67,6 +69,7 @@ const CreateCampaign = () => {
      labelName = 'story'
      placeHolder = 'write your story here...'
      inputType = 'text'
+     theme={theme}
      isTextArea={true}
      value = {form.description}
      handleChange = {(e) => handleFormFieldChange('description',e)}
@@ -79,6 +82,7 @@ const CreateCampaign = () => {
     <FormField 
      labelName = 'target'
      placeHolder = 'ETH 2'
+     theme={theme}
      inputType = 'text'
      value = {form.target}
      handleChange = {(e) => handleFormFieldChange('target',e)}
@@ -86,6 +90,7 @@ const CreateCampaign = () => {
      <FormField 
      labelName = 'end date'
      placeHolder = 'End Date'
+     theme={theme}
      inputType = 'date'
      value = {form.deadline}
      handleChange = {(e) => handleFormFieldChange('deadline',e)}
@@ -95,6 +100,7 @@ const CreateCampaign = () => {
      labelName = 'campaign image'
      placeHolder={'place your image url here'}
      inputType = 'url'
+     theme={theme}
      value = {form.image}
      handleChange = {(e) => handleFormFieldChange('image',e)}
     />
@@ -102,7 +108,7 @@ const CreateCampaign = () => {
       <CustomButton 
       btnType={'submit'}
       title={'submit new campaign'}
-      style={'bg-[#1dc071]'}
+      style={'bg-bgGreen'}
       />
     </div>
     </form>
